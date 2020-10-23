@@ -103,7 +103,7 @@ Madrid_tbl %>%
   ggplot(aes(x=Date,y=AT))+
   geom_line()+
   xlab('Year')+
-  ylab('Temperature(¡æ)')+
+  ylab('Temperature(Â¡Ã¦)')+
   labs(title = 'Average daily temperature in Madrid from 1991-1995')
   
 
@@ -114,7 +114,7 @@ Madrid_tbl %>%
   ggplot(aes(x=MonthM,y=avgmonthAT))+
   geom_line()+
   xlab('Year')+
-  ylab('Temperature(¡æ)')+
+  ylab('Temperature(Â¡Ã¦)')+
   labs(title = 'Average monthly temperature in Madrid from 1991-1995')
 
 Madrid_tbl %>%
@@ -123,7 +123,7 @@ Madrid_tbl %>%
   ggplot(aes(x=Date2,y=diff9195))+
   geom_line()+
   xlab('Year')+
-  ylab('Temperature(¡æ)')+
+  ylab('Temperature(Â¡Ã¦)')+
   labs(title = 'Daily temperature difference in 1991-1995')
   
 class(diff1991)

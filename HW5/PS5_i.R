@@ -5,7 +5,7 @@ library(rgdal)
 library(sf)
 library(maps)
 library(mapdata)
-
+library(ggplot2)
 setwd('D:/ESE5023/data')
 
 
@@ -33,23 +33,30 @@ Crop_box <- c(65,145,15,55)
 wind_avg_crop <- crop(wind_avg, Crop_box)
 
 par(mar=c(4.5,3,2,1))
+
+
 plot(wind_avg_crop,
      main="Wind speed in China for 1970-2000",
      horizontal=T,
      useRaster=T,
      legend.width=0.7, 
      legend.mar=2,
-     legend.args=list(text="Wind speed [m s-1]",cex=1))
+     legend.args=list(text="Wind speed [m s-1]",cex=1),
+     col=heat.colors(100)
+)
 
 map("china", 
     add=T,
-    col = "red4", 
+    col = "black", 
+    lwd = 1.5,
     ylim = c(15, 54))
 
 contour(wind_avg_crop, 
-        levels=seq(from=0, to=6, by=2),
+        levels=seq(from=4, to=8, by=1),
         add=T,
-        col='blue')
+        col='blue',
+        labcex=1,
+        lty = 1)
 
 
 
@@ -83,15 +90,18 @@ plot(prec_avg_crop,
      legend.mar=2,
      legend.args=list(text="Precipitation [mm]",cex=1))
 
+
 map("china", 
     add=T,
     col = "red4", 
     ylim = c(15, 54))
 
 contour(prec_avg_crop, 
-        levels=seq(from=0, to=100, by=25),
+        levels=seq(from=0, to=20, by=5),
         add=T,
-        col='blue')
+        col='blue',
+        labcex=1,
+        lty = 1)
 
 ##Solarradiation----------------------------------------
 path_s <- "D:/ESE5023/data/wc2.1_2.5m_srad"
@@ -121,7 +131,8 @@ plot(srad_avg_crop,
      useRaster=T,
      legend.width=0.7, 
      legend.mar=2,
-     legend.args=list(text="Solar Radiation [*10^3 kJ m-2 day-1]",cex=1))
+     legend.args=list(text="Solar Radiation [*10^3 kJ m-2 day-1]",cex=1),
+     col=terrain.colors(100))
 
 map("china", 
     add=T,
@@ -129,6 +140,8 @@ map("china",
     ylim = c(15, 54))
 
 contour(srad_avg_crop,
-        levels=seq(from=17,to=25, by=1),
+        levels=seq(from=17,to=25, by=2),
         add=T,
-        col='blue')
+        col='blue',
+        labcex=1,
+        lty = 1)
